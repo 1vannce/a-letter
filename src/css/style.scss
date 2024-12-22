@@ -1,0 +1,82 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  font-family: "Poppins", sans-serif;
+  background-color: #f4f4f4;
+
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main__section {
+  padding: 0 clamp(1em, 7vw, 20em);
+  display: grid;
+  place-content: center;
+
+  height: 100vh;
+
+  .main__title {
+    font-size: clamp(1rem, -1.5rem + 8vw, 1.5rem);
+  }
+
+  .main__music {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1em;
+  }
+
+  .main__music-icon {
+    width: 3em;
+    height: 3em;
+    font-size: clamp(0.7rem, -1.5rem + 7vw, 1rem);
+    cursor: pointer;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+
+  .main__music-text {
+    font-size: clamp(0.4rem, -1.5rem + 8vw, 0.8rem);
+  }
+
+  .main__reveal-type {
+    font-size: clamp(1rem, -1.5rem + 8vw, 2rem);
+    text-wrap: wrap;
+  }
+}
+
+.main__footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100vh;
+
+  .main__author {
+    font-size: clamp(0.5rem, -1.5rem + 8vw, 0.8rem);
+    text-align: left;
+  }
+}
