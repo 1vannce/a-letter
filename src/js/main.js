@@ -1,34 +1,24 @@
-// Animation
-// gsap.registerPlugin(ScrollTrigger);
-// const splitTypes = document.querySelectorAll(".main__reveal-type");
+// Animate
+document.addEventListener("DOMContentLoaded", () => {
+  const revealElements = document.querySelectorAll(".fade-in");
 
-// splitTypes.forEach((char, i) => {
-//   const text = new SplitType(char, { types: "chars" });
+  const observerOptions = {
+    threshold: 0.1, // Trigger when 10% of the element is visible
+  };
 
-//   gsap.from(text.chars, {
-//     scrollTrigger: {
-//       trigger: char,
-//       start: "top 60%",
-//       end: "bottom 40%",
-//       scrub: true,
-//       markers: false,
-//     },
-//     opacity: 0.2,
-//     stagger: 0.1,
-//   });
-// });
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target); // Stop observing once it's visible
+      }
+    });
+  }, observerOptions);
 
-// const lenis = new Lenis();
-// lenis.on("scroll", (e) => {
-//   console.log(e);
-// });
-
-// function raf(time) {
-//   lenis.raf(time);
-//   requestAnimationFrame(raf);
-// }
-
-// requestAnimationFrame(raf);
+  revealElements.forEach((element) => {
+    observer.observe(element);
+  });
+});
 
 // Music
 const musicToggle = document.getElementById("musicToggle");
